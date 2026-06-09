@@ -1,104 +1,18 @@
-let grid = document.getElementById("grid");
-let timerEl = document.getElementById("timer");
-let mistakeEl = document.getElementById("mistakes");
-
-let timer = 0;
-let timerInterval;
-let mistakes = 0;
-let inputs = [];
-
-// multiple difficulty puzzles
-const puzzles = {
-  easy: [
-    [1,0,0,4,5],
-    [0,5,1,0,0],
-    [0,1,0,5,0],
-    [0,0,5,1,0],
-    [5,4,0,0,1]
-  ],
-  medium: [
-    [0,0,3,4,0],
-    [4,0,0,0,3],
-    [3,0,0,5,0],
-    [0,3,0,0,4],
-    [0,4,0,0,0]
-  ],
-  hard: [
-    [0,0,0,4,0],
-    [0,0,1,0,0],
-    [0,1,0,0,0],
-    [0,0,0,0,4],
-    [0,0,0,0,0]
-  ]
-};
-
-const solution = [
-  [1,2,3,4,5],
-  [4,5,1,2,3],
-  [3,1,2,5,4],
-  [2,3,5,1,4],
-  [5,4,3,2,1]
-];
-
-function startTimer(){
-  clearInterval(timerInterval);
-  timer = 0;
-  timerInterval = setInterval(()=>{
-    timer++;
-    timerEl.innerText = timer;
-  },1000);
+body {
+  text-align: center;
+  font-family: Arial;
 }
 
-function createGrid(level){
-  grid.innerHTML = "";
-  inputs = [];
-  mistakes = 0;
-  mistakeEl.innerText = mistakes;
-
-  let puzzle = puzzles[level];
-
-  for(let r=0;r<5;r++){
-    for(let c=0;c<5;c++){
-      let input = document.createElement("input");
-
-      if(puzzle[r][c] !== 0){
-        input.value = puzzle[r][c];
-        input.disabled = true;
-      } else {
-        input.addEventListener("input", (e)=>{
-          let val = e.target.value;
-          if(val != solution[r][c]){
-            mistakes++;
-            mistakeEl.innerText = mistakes;
-            e.target.style.background = "red";
-          } else {
-            e.target.style.background = "lightgreen";
-          }
-        });
-      }
-
-      grid.appendChild(input);
-      inputs.push(input);
-    }
-  }
-
-  startTimer();
+#grid {
+  display: grid;
+  grid-template-columns: repeat(5, 60px);
+  justify-content: center;
+  margin-top: 20px;
 }
 
-function startGame(level){
-  createGrid(level);
-}
-
-function resetGame(){
-  location.reload();
-}
-
-function getHint(){
-  for(let i=0;i<inputs.length;i++){
-    if(inputs[i].value === ""){
-      inputs[i].value = solution[Math.floor(i/5)][i%5];
-      inputs[i].style.background = "yellow";
-      break;
-    }
-  }
+input {
+  width: 55px;
+  height: 55px;
+  font-size: 20px;
+  text-align: center;
 }
