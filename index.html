@@ -1,28 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Master Sudoku Game</title>
+  <title>Sudoku Game</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>🧩 Master Sudoku Game</h1>
-
-<div class="controls">
-  <button onclick="startGame('easy')">Easy</button>
-  <button onclick="startGame('medium')">Medium</button>
-  <button onclick="startGame('hard')">Hard</button>
-  <button onclick="resetGame()">Reset</button>
-  <button onclick="getHint()">Hint 💡</button>
-</div>
-
-<div id="info">
-  ⏱️ Time: <span id="timer">0</span> sec |
-  ❌ Mistakes: <span id="mistakes">0</span>
-</div>
+<h1>Sudoku Game</h1>
 
 <div id="grid"></div>
 
+<button onclick="check()">Check</button>
+<button onclick="reset()">Reset</button>
+
 <script src="script.js"></script>
+
 </body>
 </html>
