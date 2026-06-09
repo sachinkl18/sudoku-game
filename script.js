@@ -1,18 +1,6 @@
 body {
   text-align: center;
   font-family: Arial;
-  background: #f0f2f5;
-}
-
-h1 {
-  margin-top: 10px;
-}
-
-.controls button {
-  margin: 5px;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 8px;
 }
 
 #grid {
@@ -27,15 +15,4 @@ input {
   height: 55px;
   font-size: 20px;
   text-align: center;
-  border: 1px solid #333;
-}
-
-input:disabled {
-  background: #ccc;
-  font-weight: bold;
-}
-
-#info {
-  margin-top: 10px;
-  font-size: 18px;
 }
