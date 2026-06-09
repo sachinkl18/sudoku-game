@@ -1,12 +1,26 @@
-const grid = document.getElementById("grid");
-
-// create 5x5 inputs
-for (let i = 0; i < 25; i++) {
-  let input = document.createElement("input");
-  input.maxLength = 1;
-  grid.appendChild(input);
+body {
+  text-align: center;
+  font-family: Arial;
+  background: #f4f4f4;
 }
 
-function check() {
-  alert("Game check logic not added yet (basic version)");
+#grid {
+  display: grid;
+  grid-template-columns: repeat(5, 60px);
+  width: 300px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+input {
+  width: 55px;
+  height: 55px;
+  text-align: center;
+  font-size: 20px;
+  border: 1px solid #333;
+}
+
+input:disabled {
+  background: #ddd;
+  font-weight: bold;
 }
