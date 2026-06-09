@@ -1,0 +1,18 @@
+body {
+  text-align: center;
+  font-family: Arial;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(5, 50px);
+  width: 250px;
+  margin: auto;
+}
+
+input {
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  font-size: 18px;
+}
